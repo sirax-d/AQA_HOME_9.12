@@ -26,7 +26,7 @@ def start_settings_google(request):
         options=options
     )
 
-    browser = Browser(Config(driver))
+    browser = Browser(Config(driver=driver))
     yield browser
 
     attach.add_screenshot(browser)
