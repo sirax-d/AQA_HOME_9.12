@@ -1,12 +1,16 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selene.support.shared import config
 from selene import Browser, Config
 
 from utils import attach
 
 @pytest.fixture(scope='function')
-def setup_browser(request):
+def start_settings_google(request):
+    config.base_url = 'https://demoqa.com'
+    config.window_width = 1920
+    config.window_height = 1080
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -24,9 +28,6 @@ def setup_browser(request):
 
     browser = Browser(Config(driver))
     yield browser
-
-    browser.clear_local_storage()
-    browser.quit()
 
     attach.add_screenshot(browser)
     attach.add_logs(browser)
