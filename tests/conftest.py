@@ -2,9 +2,9 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene.support.shared import config
-from selene import Browser, Config
-
+from selene import browser
 from utils import attach
+
 
 @pytest.fixture(scope='function')
 def start_settings_google(request):
@@ -26,7 +26,8 @@ def start_settings_google(request):
         options=options
     )
 
-    browser = Browser(Config(driver=driver))
+    browser.config.driver = driver
+
     yield browser
 
     attach.add_screenshot(browser)
