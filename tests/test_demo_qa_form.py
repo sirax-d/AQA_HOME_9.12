@@ -3,7 +3,7 @@ from selene import be, have, by
 import os
 
 
-file_path = os.path.abspath("files/file.txt")
+file_path = os.path.join(os.environ['WORKSPACE'], "files/file.txt")
 
 def test_demoqa_forms(setup_browser):
     browser.open('/automation-practice-form')
