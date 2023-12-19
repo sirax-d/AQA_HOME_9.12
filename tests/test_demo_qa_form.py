@@ -22,7 +22,7 @@ def test_demoqa_forms(setup_browser):
     browser.element('#subjectsInput').click().type('Math')
     browser.element('.subjects-auto-complete__menu').element(by.text('Maths')).click()
     browser.element('[for="hobbies-checkbox-2"]').click()
-    browser.element('#uploadPicture').set(os.path.abspath("files/file.txt")) \
+    browser.element('#uploadPicture').set(os.path.abspath("file.txt")) \
         .should(have.attribute("value").value_containing("file.txt"))  # проверяем, что файл подгрузился
     browser.element('#currentAddress').type('Street Pirogovskaya 11-12')
     browser.element('#react-select-3-input').type('NCR').press_enter()
