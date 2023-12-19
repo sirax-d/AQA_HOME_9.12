@@ -7,7 +7,7 @@ from utils import attach
 
 
 @pytest.fixture(scope='function')
-def start_settings_google(request):
+def setup_browser(request):
     config.base_url = 'https://demoqa.com'
     config.window_width = 1920
     config.window_height = 1080
