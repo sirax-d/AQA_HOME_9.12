@@ -37,4 +37,4 @@ def test_demoqa_forms(setup_browser):
         have.exact_texts('Test_First_Name Test_Last_Name', 'test@email.com', 'Other', '8987988099',\
                          '21 May,1990', 'Maths', 'Reading', 'file.txt', 'Street Pirogovskaya 11-12',\
                          'NCR Gurgaon'))
-    browser.element('[id="closeLargeModal"]').click()  # закрываем окно
+    browser.element('[id="closeLargeModal"]').click().timeout(5) # закрываем окно
